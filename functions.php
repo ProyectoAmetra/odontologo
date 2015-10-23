@@ -1,4 +1,5 @@
-<?php  
+<?php
+
 //buscar datos en base y exportar a select
 function getbddata ($table) {
 
@@ -29,7 +30,7 @@ function getbddata ($table) {
 	$conn->close();
 }
 
-//mostrar datos completos de una tabla
+//mostrar datos del cliente
 function getbddata ($table) {
 
 		$servername = "localhost";
@@ -53,6 +54,7 @@ function getbddata ($table) {
 		         echo "<p>ID: ".$row["id"]."</p><br>";
 		         echo "<p>Nombre: ".$row["nombre"]."</p><br>";
 		         echo "<p>Apellido: ".$row["apellido"]."</p><br>";
+		         echo "<p>Apellido: ".$row["ci"]."</p><br>";
 		         echo "***********************************<br>";
 		     }
 		} else {
@@ -62,7 +64,7 @@ function getbddata ($table) {
 		$conn->close();
 	}
 
-//mostrar datos completos de una tabla
+//mostrar tratamiento y descripcion del mismo
 function getbddata ($table) {
 
 		$servername = "localhost";
@@ -83,7 +85,8 @@ function getbddata ($table) {
 		if ($result->num_rows > 0) {
 		     // output data of each row
 		     while($row = $result->fetch_assoc()) {
-		         echo "<p>Tratamiento: ".$row["descripcion"]."</p><br>";
+		         echo "<p>Tratamiento: ".$row["descripcion"].".""</p><br>";
+		         echo "<p>".$row["obs"]."</p>";
 		     }
 		} else {
 		     echo "0 results";
