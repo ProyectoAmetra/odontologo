@@ -1,12 +1,13 @@
 <?php
 
-//buscar datos en base y exportar a select
-function getbddata ($table) {
+//mostrar dias ocupados 
+function getbddata () {
 
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
-	$dbname = "Dentista_prueba";
+	$dbname = "agenda_dent";
+	$table = "consulta";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,13 +16,14 @@ function getbddata ($table) {
 	     die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "SELECT codigo, descripcion FROM ".$table."";
+	$sql = "SELECT mes, dia, fecha, hora FROM ".$table."";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
 	     // output data of each row
 	     while($row = $result->fetch_assoc()) {
-	         echo "<option value='". $row["id"]. "'>".$row["descripcion"]."</option>";
+	         echo "<li>".$row['dia']." ".$row['fecha']." de ".$row['mes']."</li>";
+	         echo "<li>hora: ".$row['hora']."</li>";
 	     }
 	} else {
 	     echo "0 results";
@@ -30,68 +32,37 @@ function getbddata ($table) {
 	$conn->close();
 }
 
-//mostrar datos del cliente
-function getbddata ($table) {
+//filtrar dias ocupados
+function filtrarocupados($criterio, $valorini, $falorfin) {
+	
+	$servername = "localhost";
+	$username = "root";
+	$password = "root";
+	$dbname = "agenda_dent";
+	$table = "consulta";
 
-		$servername = "localhost";
-		$username = "root";
-		$password = "root";
-		$dbname = "inmobiliaria";
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	     die("Connection failed: " . $conn->connect_error);
+	} 
 
-		// Create connection
-		$conn = new mysqli($servername, $username, $password, $dbname);
-		// Check connection
-		if ($conn->connect_error) {
-		     die("Connection failed: " . $conn->connect_error);
-		} 
+	$sql = "SELECT mes, dia, fecha, hora FROM ".$table." WHERE ".$criterio." BETWEEN ".$valorini." AND ".$valorfin."";
+	$result = $conn->query($sql);
 
-		$sql = "SELECT codigo, descripcion FROM ".$table."";
-		$result = $conn->query($sql);
-
-		if ($result->num_rows > 0) {
-		     // output data of each row
-		     while($row = $result->fetch_assoc()) {
-		         echo "<p>ID: ".$row["id"]."</p><br>";
-		         echo "<p>Nombre: ".$row["nombre"]."</p><br>";
-		         echo "<p>Apellido: ".$row["apellido"]."</p><br>";
-		         echo "<p>Apellido: ".$row["ci"]."</p><br>";
-		         echo "***********************************<br>";
-		     }
-		} else {
-		     echo "0 results";
-		}
-
-		$conn->close();
+	if ($result->num_rows > 0) {
+	     // output data of each row
+	     while($row = $result->fetch_assoc()) {
+	         echo "<li>".$row['dia']." ".$row['fecha']." de ".$row['mes']."</li>";
+	         echo "<li>hora: ".$row['hora']."</li>";
+	     }
+	} else {
+	     echo "0 results";
 	}
 
-//mostrar tratamiento y descripcion del mismo
-function getbddata ($table) {
+	$conn->close();	
 
-		$servername = "localhost";
-		$username = "root";
-		$password = "root";
-		$dbname = "inmobiliaria";
+}
 
-		// Create connection
-		$conn = new mysqli($servername, $username, $password, $dbname);
-		// Check connection
-		if ($conn->connect_error) {
-		     die("Connection failed: " . $conn->connect_error);
-		} 
-
-		$sql = "SELECT descripcion, obs FROM ".$table."";
-		$result = $conn->query($sql);
-
-		if ($result->num_rows > 0) {
-		     // output data of each row
-		     while($row = $result->fetch_assoc()) {
-		         echo "<p>Tratamiento: ".$row["descripcion"].".""</p><br>";
-		         echo "<p>".$row["obs"]."</p>";
-		     }
-		} else {
-		     echo "0 results";
-		}
-
-		$conn->close();
-	}
 ?>
