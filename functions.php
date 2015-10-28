@@ -36,7 +36,7 @@ function getbddata ($table) {
 		$servername = "localhost";
 		$username = "root";
 		$password = "root";
-		$dbname = "inmobiliaria";
+		$dbname = "Dentista_prueba";
 
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
@@ -70,7 +70,7 @@ function getbddata ($table) {
 		$servername = "localhost";
 		$username = "root";
 		$password = "root";
-		$dbname = "inmobiliaria";
+		$dbname = "Dentista_prueba";
 
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
