@@ -1,10 +1,11 @@
 <?
-function inserttratamiento($descr, $obs) {
+
+function insertpaciente ($mes, $dia, $fecha, $hora, $duracion, $nombre, $ci) {
 
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
-	$dbname = "Dentista_prueba";
+	$dbname = "agenda_dent";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,39 +15,11 @@ function inserttratamiento($descr, $obs) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "INSERT INTO Tratamiento (descripcion, obs)
-	VALUES ('$descr', '$obs')";
+	$sql = "INSERT INTO consulta (mes, dia, fecha, hora, duracion, nombre, ci)
+	VALUES ('$mes', '$dia', '$fecha', '$hora', '$duracion', '$nombre', '$ci')";
 
 	if ($conn->query($sql) === TRUE) {
-	    echo "Nuevo tratamiento ingresado correctamente";
-	} else {
-	    echo "Error: " . $sql . "<br>" . $conn->error;
-	}
-
-	$conn->close();
-
-}
-
-function insertpaciente ($nombre, $apellido, $ci, $mail, $tel1, $tel2) {
-
-	$servername = "localhost";
-	$username = "root";
-	$password = "root";
-	$dbname = "Dentista_prueba";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	} 
-
-	$sql = "INSERT INTO Paciente (nombre, apellido, ci, mail, tel1, tel2)
-	VALUES ('$nombre', '$apellido', '$ci', '$mail', '$tel1', '$tel2')";
-
-	if ($conn->query($sql) === TRUE) {
-	    echo "Nuevo paciente ingresado correctamente";
+	    echo "Nueva consulta agendada correctamente";
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}
@@ -55,3 +28,5 @@ function insertpaciente ($nombre, $apellido, $ci, $mail, $tel1, $tel2) {
 
 }
 ?>
+
+
