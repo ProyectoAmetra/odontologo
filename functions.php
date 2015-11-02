@@ -92,7 +92,7 @@ function getmes ($i) {
 			$mes = "octubre";
 			break;
 		case 11:
-			$mes = "noviemre";
+			$mes = "noviembre";
 			break;
 		case 12:
 			$mes = "diciembre";
