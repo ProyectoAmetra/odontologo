@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2015 at 03:46 PM
+-- Generation Time: Nov 14, 2015 at 03:52 PM
 -- Server version: 5.5.46-0ubuntu0.14.04.2
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -54,7 +54,8 @@ CREATE TABLE IF NOT EXISTS `Sesion` (
   `mes` int(11) NOT NULL,
   `precio` int(11) DEFAULT NULL,
   `descuento` int(11) NOT NULL,
-  `total` int(11) NOT NULL
+  `total` int(11) NOT NULL,
+  `comentario` longtext
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
