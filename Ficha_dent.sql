@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `Cliente` (
 --
 
 CREATE TABLE IF NOT EXISTS `Sesion` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_cli` int(11) NOT NULL,
   `id_trat` int(11) NOT NULL,
   `fecha` int(11) NOT NULL,
