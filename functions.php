@@ -6,8 +6,8 @@ function getbddata () {
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
-	$dbname = "agenda_dent";
-	$table = "consulta";
+	$dbname = "Ficha_dent";
+	$table = "Sesion";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -104,16 +104,17 @@ function getmes ($i) {
 	return $mes;
 }
 ?>
-<<<<<<< HEAD
+HEAD
+<?php
 //filtrar dias ocupados
 function filtrarocupados($criterio, $valorini, $falorfin) {
 	
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
-	$dbname = "agenda_dent";
-	$table = "consulta";
-=======
+	$dbname = "Fischa_dent";
+	$table = "";
+
 //mostrar datos del cliente
 function getbddata ($table) {
 
@@ -128,7 +129,6 @@ function getbddata ($table) {
 		if ($conn->connect_error) {
 		     die("Connection failed: " . $conn->connect_error);
 		} 
->>>>>>> 4f4b19a108f7c2a80b9ce1f07a3e12532abf9853
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -152,11 +152,10 @@ function getbddata ($table) {
 
 	$conn->close();	
 
-<<<<<<< HEAD
+ HEAD
 }
 
-?>
-=======
+
 		$servername = "localhost";
 		$username = "root";
 		$password = "root";
@@ -185,4 +184,3 @@ function getbddata ($table) {
 		$conn->close();
 	}
 ?>
->>>>>>> 4f4b19a108f7c2a80b9ce1f07a3e12532abf9853

@@ -6,9 +6,9 @@
 <body>
 	<form method="post" action="tratamientoabd.php">
 		Ingrese nombre del tratamiento:<br>
-		<input type="text" name="descripcion"><br>
+		<input type="text" name="nombreTrat"><br>
 		Ingrese descripcion:<br>
-		<input type="text" name="obs"><br>
+		<input type="text" name="descripcion"><br>
 		<input type="submit" value="Enviar">
 	</form>
 </body>
